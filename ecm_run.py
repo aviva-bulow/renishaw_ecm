@@ -17,7 +17,7 @@ class ECMConnection:
     def __init__(self, url):
         self.url = url
         self._id = 0
-        self.headers = {"content-type": "application/json"}
+        self.headers = {"Content-Type": "application/json"}
 
     @property
     def id(self):
@@ -43,13 +43,14 @@ class ECMConnection:
         )
         if res.status_code == requests.codes.ok:
             r = json.loads(res.text)
+            print(r)
             if "error" in r:
                 raise ECMException(r["error"]["message"])
             else:
                 result = r["result"]
         else:
             print(res)
-            raise ECMException(res.text)
+            raise ECMException(res.url)
         return result
 
     def wait(self, handle, timeout=10000):
@@ -80,8 +81,8 @@ def main(args=None):
     parser.add_argument(
         "--url",
         dest="url",
-        default="http://localhost:9880/api",
-        help="URL for the API endpoint eg: http://hostname:9880/api",
+        default="http://localhost:9880/api/",
+        help="URL for the API endpoint eg: http://hostname:9880/api/",
     )
     parser.add_argument(
         "--template",

@@ -10,7 +10,7 @@ def main(args = None):
         args = sys.argv[1:]
         
     parser = argparse.ArgumentParser(description="Test the WiREQueue JSON-RPC API")
-    parser.add_argument('--url', dest='url', default='http://localhost:9880/api',
+    parser.add_argument('--url', dest='url', default='http://localhost:9880/api/',
         help='URL for the API endpoint')
     parser.add_argument('--count', dest='count', type=int, default=100,
         help='number of requests to make')
@@ -18,8 +18,8 @@ def main(args = None):
         help='API method name')
     options = parser.parse_args(args)
     
-    headers = {'content-type': 'application/json'}
-    data = dict(jsonrpc="2.0", id=0, method=options.method, params=[])
+    headers = {'Content-Type': 'application/json'}
+    data = dict(jsonrpc="2.0", id=0, method=options.method, params={"Connected":"Connection Test"},  )
     for id in range(0,options.count):
         data['id'] = id
         res = requests.post(options.url, headers=headers, json=data, timeout=0.2, proxies={'http': None})
@@ -31,7 +31,7 @@ def main(args = None):
                 print("{0}: {1}".format(id, r['result']))
             sys.stdout.flush()
         else:
-            print("error: {0}".format(res.text), file=sys.stderr)
+            print("error: {0}".format(res.url), file=sys.stderr)
         #time.sleep(0.05)
     return 0
 

@@ -23,7 +23,7 @@ class ECMConnection():
         self.url = url
         self._id = 0
         self.debug = False
-        self.headers = {'content-type': 'application/json'}
+        self.headers = {'Content-Type': 'application/json'}
 
     @property
     def id(self):
@@ -130,8 +130,8 @@ def main(args = None):
         args = sys.argv[1:]
     # Define the command line parameters.
     parser = argparse.ArgumentParser(description="Run a WiRE measurement using the JSON-RPC API")
-    parser.add_argument('--url', dest='url', default='http://localhost:9880/api',
-        help='URL for the API endpoint eg: http://hostname:9880/api')
+    parser.add_argument('--url', dest='url', default='http://localhost:9880/api/',
+        help='URL for the API endpoint eg: http://hostname:9880/api/')
     parser.add_argument('--template', dest='template',
         help='path of the measurement template to run')
     parser.add_argument('--filename', dest='filename',
