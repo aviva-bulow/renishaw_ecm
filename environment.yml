@@ -21,6 +21,7 @@ dependencies:
   - matplotlib
   - requests
   - pillow
+  - spectral
   - flake8 # linting
   - black # formatting
   # - conda-pack
