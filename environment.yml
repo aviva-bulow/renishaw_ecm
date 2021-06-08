@@ -1,0 +1,26 @@
+# to create a conda environment from this file type: conda env create -f environment.yml
+# to initialize (ie. enter) the environment, type: conda activate bgr
+# to deactivate the environment (ie. to exit it), type: conda deactivate
+# to delete the environment type: conda remove --name bgr --all
+# for more info on managing your conda environments, see: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+
+# if you're having trouble launching jupyter notebook from the anaconda environment, try:
+# conda activate bgr
+# python -m ipykernel install --user --name bgr
+# then go to your jupyter notebook, click on "Kernel" -> "Change Kernel" -> "bgr"
+
+name: bgr
+channels:
+  - anaconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8.5
+  - ipython
+  - numpy
+  - matplotlib
+  - requests
+  - pillow
+  - flake8 # linting
+  - black # formatting
+  # - conda-pack
