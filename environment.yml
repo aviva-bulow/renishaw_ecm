@@ -19,9 +19,21 @@ dependencies:
   - ipython
   - numpy
   - matplotlib
+  - xraylib=3.3.0
+  - pyepics
+  - plotly
+  - periodictable
+  - qdarkstyle
+  - lmfit
+  - scipy
+  - h5py
+  - pyqt
+  - scikit-learn=0.24.2
+  - scikit-fuzzy
+  - jupyter
+  - conda-pack
   - requests
   - pillow
   - spectral
   - flake8 # linting
   - black # formatting
-  # - conda-pack
